@@ -15,7 +15,8 @@ let testdata = [{
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-  
+  	
+	<link rel="icon" href="../../public/assets/tab-icon.png">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 		crossorigin=""/>
@@ -30,11 +31,25 @@ let testdata = [{
 		@import "../styles/global.css";
 		@import "../styles/home.css";
 	</style>
+	
+	<style>
+		
+	</style>
+	
 </head>
-<body>
+
+
+
+<body onLoad="MapHandler()">
+	<div id="navbar">
+		<img src="../../public/assets/logo.png"></img>
+		<a>Switch Account</a>
+	</div>
+	
 	<main>
-		<News data={testdata}/>
-    <MapHandler client:only />
+		<MapHandler client:only />
+		
+		<!--<News data={testdata}/>-->
 	</main>
 </body>
 </html>
