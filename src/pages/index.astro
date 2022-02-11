@@ -1,12 +1,21 @@
 ---
+
 import MapHandler from "../components/Map.jsx"
+import News from '../components/News.tsx';
 
 let title = "GUSS 2022";
+let testdata = [{
+	headline: "hello",
+	url: "https://www.google.com",
+	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"
+},]
+
 ---
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
+  
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 		crossorigin=""/>
@@ -24,7 +33,8 @@ let title = "GUSS 2022";
 </head>
 <body>
 	<main>
-		<MapHandler client:only />
+		<News data={testdata}/>
+    <MapHandler client:only />
 	</main>
 </body>
 </html>
