@@ -5,12 +5,12 @@ interface props {
 }
 
 let Article: FC<props> = ({ src }) => {
-  let { headline, url, img } = src;
+  let { headline, url, img, alt } = src;
   return (
     <div className="articleContainer">
       <a href={url}>
         <h2 className="articleHeadline">{headline}</h2>
-        <img src={img} className="articlePicture" />
+        <img src={img} alt={alt} className="articlePicture" />
       </a>
     </div>
   );
