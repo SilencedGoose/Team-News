@@ -1,17 +1,29 @@
 ---
+
+import MapHandler from "../components/Map.jsx"
 import News from '../components/News.tsx';
 
+let title = "GUSS 2022";
 let testdata = [{
 	headline: "hello",
 	url: "https://www.google.com",
 	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"
 },]
+
 ---
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-	<title>test</title>
+  
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	
+	<title>{title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<style global>
@@ -21,13 +33,8 @@ let testdata = [{
 </head>
 <body>
 	<main>
-		<header>
-			<div>
-				<img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-				<h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-			</div>
-		</header>
 		<News data={testdata}/>
+    <MapHandler client:only />
 	</main>
 </body>
 </html>
