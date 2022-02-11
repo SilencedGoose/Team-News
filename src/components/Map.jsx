@@ -40,9 +40,8 @@ export default function MapHandler() {
 	
 	
 	return (
-		<div>
-			<button onClick={loadMap}>Load Map</button>
-			
+		<div id="mapDiv">
+			<button class="button" onClick={loadMap}>Load Map</button>
 			<div id="map"></div>
 		</div>
 	)
