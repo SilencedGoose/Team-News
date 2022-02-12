@@ -1,9 +1,8 @@
 ---
 
-import MapHandler from "../components/Map.jsx"
+import MapHandler from "../components/Map.tsx"
 import News from '../components/News.tsx';
 
-let title = "GUSS 2022";
 let testdata = [{
 	headline: "hello",
 	url: "https://www.google.com",
@@ -12,68 +11,68 @@ let testdata = [{
 
 ---
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-  	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		
 
-	<!--leaflet map things-->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-		crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-		crossorigin=""></script>
-	
-	<title>Team News</title>
-	<link rel="icon" href="../../public/assets/tab-icon.png">
-	<style global>
-		@import "../styles/home.css";
-	</style>
-</head>
+		<!--leaflet map things-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+			crossorigin=""></script>
+		
+		<title>Team News</title>
+		<link rel="icon" href="../../public/assets/tab-icon.png">
+		<style global>
+			@import "../styles/home.scss";
+		</style>
+	</head>
 
+	<body>
+		<div id="fixed">
+			<header id="navbar">
+				<img src="../../public/assets/logo.png"/>
+				<a>Switch Account</a>
+			</header>
 
-
-<body onLoad="MapHandler()">
-	<div id="fixed">
-		<div id="navbar">
-			<img src="../../public/assets/logo.png"/>
-			<a>Switch Account</a>
-		</div>
-
-		<div id="map-on-page">
-			<MapHandler client:only />
-		</div>
-	</div>
-	
-	<div class="spacer"></div>
-	<div class="arrow-container">
-		<p class="bounce">Scroll down for news<br></p>
-		<div class="arrowDown bounce"></div>
-	</div>
-	
-	<div id="news-container">
-
-		<div id="news">
-			<div id="news-content">
-				<h1>Global News</h1><br>
-				<div class="news-card">
-					<div>
-						<h3>Hello</h3>
-						<a href="https://www.google.com">Read more...</a>
-					</div>
-					<img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"></img>
-				</div>
-				<div class="news-card">
-					<div>
-						<h3>Article 2</h3>
-						<a href="https://www.google.com">Read more...</a>
-					</div>
-					<img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"></img>
-				</div>
-				
+			<div id="map-on-page">
+				<MapHandler client:only />
 			</div>
 		</div>
-	</div>
-				<!--<News data={testdata}/>-->
-</body>
+		
+		<div class="spacer"></div>
+
+		<div class="arrow-container">
+			<p class="bounce">Scroll down for news<br></p>
+			<div class="arrowDown bounce"></div>
+		</div>
+		
+		<div id="news-container">
+
+			<div id="news">
+				<div id="news-content">
+					<h1>Global News</h1><br>
+					<div class="news-card">
+						<div>
+							<h3>Hello</h3>
+							<a href="https://www.google.com">Read more...</a>
+						</div>
+						<img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"></img>
+					</div>
+					<div class="news-card">
+						<div>
+							<h3>Article 2</h3>
+							<a href="https://www.google.com">Read more...</a>
+						</div>
+						<img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"></img>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+					<!-- <News data={testdata}/> -->
+	</body>
+</html>
