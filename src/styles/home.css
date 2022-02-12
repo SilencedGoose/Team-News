@@ -14,6 +14,9 @@ main {
 	width: 100%;
 }
 
+
+
+
 #mapDiv {
 	display: flex;
 	flex-direction: column;
@@ -31,6 +34,9 @@ main {
 	width: 100vw;
 }
 
+
+
+
 .button {
 	background: #FFD369;
 	color: #222831;
@@ -40,6 +46,8 @@ main {
 	text-decoration: none;
 	border: none;
 }
+
+
 
 
 #navbar {
@@ -67,4 +75,119 @@ main {
 
 #navbar a:hover {
 	background: #ed8b23;
+}
+
+#map-on-page {
+	margin-top: 20px;
+}
+
+
+
+
+.arrowDown {
+	border: solid #FFD369;
+	border-width: 0 5px 5px 0;
+	display: inline-block;
+	padding: 15px;
+	transform: rotate(45deg);
+}
+
+.bounce {
+	position: relative;
+	-webkit-animation:bounce 1.5s infinite;
+}
+
+@-webkit-keyframes bounce {
+	0%       { bottom: 0px; }
+	50%      { bottom: 20px; }
+	100%     { bottom: 0;}
+}
+
+.arrow-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-between;
+	width: 100%;
+	height: 20px;
+	margin-bottom: 10%;
+	color: #FFD369;
+}
+
+
+
+
+#fixed {
+	position: fixed;
+	width: 100%;
+	z-index: 0;
+}
+
+.spacer {
+	width: 100%;
+	height: 90vh;
+}
+
+
+
+
+#news-container {
+	display: flex;
+	justify-content: center;
+}
+
+#news {
+	width: 80%;
+	background: rgba(238, 238, 238, 0.9);
+	padding: 40px 20px;
+	z-index: 3;
+}
+
+#news-content {
+	opacity: 100%;
+	color: #222831;
+	overflow: hidden;
+	min-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+
+
+.news-card {
+	background: #393E46;
+	width: 70%;
+	height: 70px;
+	border-radius: 20px;
+	border: 1px solid #222831;
+	display: flex;
+	justify-content: space-between;
+	color: #EEEEEE;
+	margin-bottom: 10px;
+}
+
+.news-card div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+
+.news-card h3 {
+	border-bottom: 3px solid #222831;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.news-card a {
+	color: #FFD369;
+}
+
+.news-card img {
+	border-radius: 0 20px 20px 0;
+	border-left: 2px solid #222831;
+	max-height: 70px;
 }
