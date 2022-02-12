@@ -27,6 +27,9 @@
 body {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main {
@@ -39,11 +42,13 @@ main {
   align-items: center;
   width: 100%;
   height: 100vh;
+  
 }
 
 #map {
   height: 100vh;
   width: 100vw;
+  z-index: 2;
 }
 
 .button {
@@ -57,13 +62,13 @@ main {
 }
 
 #navbar {
-  z-index: 4;
   background: #ffd369;
   width: 100%;
   height: 70px;
   display: flex;
   justify-content: space-between;
   color: #222831;
+  z-index: 20;
 }
 
 #navbar img {
@@ -121,7 +126,6 @@ main {
 #fixed {
   position: fixed;
   width: 100%;
-  z-index: 0;
 }
 
 .spacer {
@@ -132,13 +136,14 @@ main {
 #news-container {
   display: flex;
   justify-content: center;
+  
 }
 
 #news {
-  width: 90%;
+  width: 90vw;
   background: rgba(238, 238, 238, 0.9);
   padding: 40px 20px;
-  z-index: 3;
+  z-index: 10;
 }
 
 #news h1 {
@@ -153,6 +158,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  z-index: 10;
 }
 
 .news-card {
