@@ -12,7 +12,7 @@ let Article: FC<props> = ({ src }) => {
         <a href={link}>
           <h2 className="articleHeadline">{title}</h2>
           <img src={image} alt={alt} className="articlePicture" />
-        </a> 
+        </a>
       </div>
     </div>
   );
