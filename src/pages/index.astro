@@ -16,7 +16,8 @@ let testdata = [{
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
   	
-	<link rel="icon" href="../../public/assets/tab-icon.png">
+
+	<!--leaflet map things-->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 		crossorigin=""/>
@@ -24,18 +25,11 @@ let testdata = [{
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
 	
-	<title>{title}</title>
-
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<title>Team News</title>
+	<link rel="icon" href="../../public/assets/tab-icon.png">
 	<style global>
-		@import "../styles/global.css";
 		@import "../styles/home.css";
 	</style>
-	
-	<style>
-		
-	</style>
-	
 </head>
 
 
@@ -43,7 +37,7 @@ let testdata = [{
 <body onLoad="MapHandler()">
 	<div id="fixed">
 		<div id="navbar">
-			<img src="../../public/assets/logo.png"></img>
+			<img src="../../public/assets/logo.png"/>
 			<a>Switch Account</a>
 		</div>
 
@@ -59,6 +53,7 @@ let testdata = [{
 	</div>
 	
 	<div id="news-container">
+
 		<div id="news">
 			<div id="news-content">
 				<h1>Global News</h1><br>
@@ -77,9 +72,8 @@ let testdata = [{
 					<img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"></img>
 				</div>
 				
-				<!--<News data={testdata}/>-->
 			</div>
 		</div>
 	</div>
+				<!--<News data={testdata}/>-->
 </body>
-</html>
