@@ -6,7 +6,7 @@ let users: user[] = [
   { name: "Hitoshi", location: [12.444, 1.2] },
 ];
 
-let MapHandler: FC = () => {
+let Map: FC = () => {
   useEffect(() => {
     //load map
     var map = L.map("map", { scrollWheelZoom: false }).setView([15, 0], 2);
@@ -43,10 +43,12 @@ let MapHandler: FC = () => {
   }
 
   return (
-    <div id="mapDiv">
-      <div id="map"></div>
+    <div className="map-on-page">
+      <div id="mapDiv">
+        <div id="map"></div>
+      </div>
     </div>
   );
 };
 
-export default MapHandler;
+export default Map;
