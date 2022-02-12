@@ -5,10 +5,6 @@ interface articleProps {
   alt: string;
 }
 
-interface newsProps {
-  data: articleProps[];
-}
-
 interface user {
   name: string;
   location: LatLngExpression;
