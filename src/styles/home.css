@@ -149,34 +149,39 @@ main {
   z-index: 3;
 }
 
+#news h1 {
+    text-align: center;
+}
+
 #news-content {
   opacity: 100%;
   color: #222831;
   overflow: hidden;
   min-height: 90vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .news-card {
-  background: #393e46;
-  width: 70%;
-  height: 70px;
-  border-radius: 20px;
-  border: 1px solid #222831;
-  display: flex;
-  justify-content: space-between;
-  color: #eeeeee;
-  margin-bottom: 10px;
+  position: relative;
+	background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513") no-repeat center center;
+  background-size: cover;
+	min-width: 200px;
+  width: 20%;
+	height: 300px;
+	color: #EEEEEE;
+  margin: 10px;
 }
 
-.news-card div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 20px;
-  padding-bottom: 5px;
+.news-card>div {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  max-height: 300px;
+  width: 100%;
+  flex-grow: 1;
+	padding: 10px;
+  bottom: 0;
 }
 
 .news-card h3 {
@@ -189,8 +194,9 @@ main {
   color: #ffd369;
 }
 
-.news-card img {
-  border-radius: 0 20px 20px 0;
-  border-left: 2px solid #222831;
-  max-height: 70px;
+.news-card p {
+  font-size: 12pt;
+  overflow: hidden;
+  height: 50px;
+  width: 180px;
 }
