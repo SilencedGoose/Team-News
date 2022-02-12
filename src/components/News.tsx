@@ -4,7 +4,7 @@ import Article from "./Article";
 let News: FC<newsProps> = ({ data }) => {
   return (
     <div className="news">
-      <h1>this is the news!</h1>
+      <h1>News Article</h1>
       {data.map((item) => (
         <Article src={item} />
       ))}
