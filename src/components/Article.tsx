@@ -5,13 +5,15 @@ interface props {
 }
 
 let Article: FC<props> = ({ src }) => {
-  let { headline, url, img } = src;
+  let { title, link, image, alt } = src;
   return (
-    <div className="articleContainer">
-      <a href={url}>
-        <h2 className="articleHeadline">{headline}</h2>
-        <img src={img} className="articlePicture" />
-      </a>
+    <div className="news-card">
+      <div className="news-content">
+        <a href={link}>
+          <h2 className="articleHeadline">{title}</h2>
+          <img src={image} alt={alt} className="articlePicture" />
+        </a> 
+      </div>
     </div>
   );
 };
