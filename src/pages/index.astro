@@ -2,13 +2,8 @@
 import MapHandler from "../components/Map.tsx"
 import News from '../components/News.tsx';
 
-let testdata = [{
-	headline: "hello",
-	url: "https://www.google.com",
-	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513",
-	alt:"hello"
-},]
-
+import icon from "../../public/assets/tab-icon.png";
+import logo from "../../public/assets/logo.png"
 ---
 <html lang="en">
 	<head>
@@ -25,7 +20,7 @@ let testdata = [{
 		
 		<!--various project settings-->
 		<title>Team News</title>
-		<link rel="icon" href="../../public/assets/tab-icon.png">
+		<link rel="icon" href={icon}>
 		<style global>
 			@import "../styles/home.css";
 		</style>
@@ -34,7 +29,7 @@ let testdata = [{
 	<body>
 		<div id="fixed">
 			<header id="navbar">
-				<img src="../../public/assets/logo.png"/>
+				<img src={logo} />
 				<a>Switch Account</a>
 			</header>
 
@@ -51,7 +46,7 @@ let testdata = [{
 		</div>
 		
 		<div id="news-content">
-			<News data={testdata} client:load/>
+			<News client:load/>
 		</div>
 	</body>
 </html>

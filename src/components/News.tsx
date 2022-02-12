@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import Article from "./Article";
 
-let News: FC<newsProps> = ({ data }) => {
+let News: FC = () => {
   let [news, setNews] = useState<articleProps[]>([]);
   useEffect(() => {
     fetch(
@@ -21,16 +21,17 @@ let News: FC<newsProps> = ({ data }) => {
   });
 
   return (
-		<div id="news-container">
-			<div id="news">
-				<h1>Global News</h1><br/>
-				<div id="news-content"> 
+    <div id="news-container">
+      <div id="news">
+        <h1>Global News</h1>
+        <br />
+        <div id="news-content">
           {news.map((src) => {
             return <Article src={src} />;
           })}
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
 
