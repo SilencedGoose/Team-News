@@ -139,7 +139,7 @@ main {
 }
 
 #news {
-  width: 80%;
+  width: 90%;
   background: rgba(238, 238, 238, 0.9);
   padding: 40px 20px;
   z-index: 3;
@@ -165,10 +165,11 @@ main {
     no-repeat center center;
   background-size: cover;
   min-width: 200px;
-  width: 20%;
+  flex-basis: 30%;
   height: 300px;
   color: #eeeeee;
   margin: 10px;
+  overflow: hidden;
 }
 
 .news-content {
@@ -177,23 +178,23 @@ main {
   max-height: 300px;
   width: 100%;
   flex-grow: 1;
-  padding: 10px;
   bottom: 0;
-}
-
-.news-card h3 {
-  border-bottom: 3px solid #222831;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .news-card a {
   color: #ffd369;
+  text-decoration: none;
 }
 
-.news-card p {
-  font-size: 12pt;
+.news-card .articleHeadline {
+  padding: 10px;
+  border-bottom: 3px solid #ffd369;
   overflow: hidden;
-  height: 50px;
-  width: 180px;
+  text-overflow: ellipsis;
+}
+
+.news-card .articlePicture {
+  width: 100%;
+  position: relative;
+  bottom: 0;
 }
