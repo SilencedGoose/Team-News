@@ -1,9 +1,6 @@
 ---
 import MapHandler from "../components/Map.tsx"
 import News from '../components/News.tsx';
-
-import icon from "../../public/assets/tab-icon.png";
-import logo from "../../public/assets/logo.png"
 ---
 <html lang="en">
 	<head>
@@ -20,7 +17,7 @@ import logo from "../../public/assets/logo.png"
 		
 		<!--various project settings-->
 		<title>Team News</title>
-		<link rel="icon" href={icon}>
+		<link rel="icon" href="/assets/tab-icon.png">
 		<style global>
 			@import "../styles/home.css";
 		</style>
@@ -29,7 +26,7 @@ import logo from "../../public/assets/logo.png"
 	<body>
 		<div id="fixed">
 			<header id="navbar">
-				<img src={logo} />
+				<img src="assets/logo.png" />
 				<a>Switch Account</a>
 			</header>
 
