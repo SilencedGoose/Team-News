@@ -9,3 +9,7 @@ interface user {
   name: string;
   location: LatLngExpression;
 }
+
+interface authProps {
+  auth: Auth;
+}
