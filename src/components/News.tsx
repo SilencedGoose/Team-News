@@ -21,12 +21,16 @@ let News: FC<newsProps> = ({ data }) => {
   });
 
   return (
-    <div className="news-container">
-      <h1>News Article</h1>
-      {news.map((src) => {
-        return <Article src={src} />;
-      })}
-    </div>
+		<div id="news-container">
+			<div id="news">
+				<h1>Global News</h1><br/>
+				<div id="news-content"> 
+          {news.map((src) => {
+            return <Article src={src} />;
+          })}
+        </div>
+      </div>
+    </div> 
   );
 };
 
