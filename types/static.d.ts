@@ -1,7 +1,7 @@
 interface articleProps {
-  headline: string;
-  url: string;
-  img: string;
+  title: string;
+  link: string;
+  image: string;
   alt: string;
 }
 

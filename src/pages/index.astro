@@ -1,12 +1,12 @@
 ---
-
 import MapHandler from "../components/Map.tsx"
 import News from '../components/News.tsx';
 
 let testdata = [{
 	headline: "hello",
 	url: "https://www.google.com",
-	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"
+	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513",
+	alt:"hello"
 },]
 
 ---
@@ -15,8 +15,7 @@ let testdata = [{
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		
-
-		<!--leaflet map things-->
+		<!--leaflet map parts-->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 			crossorigin=""/>
@@ -24,10 +23,11 @@ let testdata = [{
 			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 			crossorigin=""></script>
 		
+		<!--various project settings-->
 		<title>Team News</title>
 		<link rel="icon" href="../../public/assets/tab-icon.png">
 		<style global>
-			@import "../styles/home.css";
+			/* @import "../styles/home.css"; */
 		</style>
 	</head>
 
@@ -51,26 +51,28 @@ let testdata = [{
 		</div>
 		
 		<div id="news-container">
-
-		<div id="news">
-      <h1>Global News</h1><br>
-			<div id="news-content">
-				<div class="news-card">
-					<div>
-						<h3>Hello</h3>
-            <p>Subtitle or news summary</p>
-						<a href="https://www.google.com">Read more...</a>
+			<div id="news">
+				<h1>Global News</h1><br>
+				<div id="news-content">
+					<div class="news-card">
+						<div class="news-content">
+							<h3>Hello</h3>
+							<p>Subtitle or news summary</p>
+							<a href="https://www.google.com">Read more...</a>
+						</div>
 					</div>
-				</div>
-				<div class="news-card">
-					<div>
-						<h3>Article 2</h3>
-            <p>Subtitle or news summary</p>
-						<a href="https://www.google.com">Read more...</a>
+					<div class="news-card">
+						<a 
+						class="news-content"
+						href="https://www.google.com" target="_blank">
+							<h3>Article 2</h3>
+							<p>Subtitle or news summary</p>
+							<a class="article-link" href="https://www.google.com">Read more...</a>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-					<!-- <News data={testdata}/> -->
+		<News data={testdata} client:load/>
 	</body>
 </html>

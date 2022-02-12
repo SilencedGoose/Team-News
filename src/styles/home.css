@@ -146,7 +146,7 @@ main {
 }
 
 #news h1 {
-    text-align: center;
+  text-align: center;
 }
 
 #news-content {
@@ -161,22 +161,23 @@ main {
 
 .news-card {
   position: relative;
-	background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513") no-repeat center center;
+  background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513")
+    no-repeat center center;
   background-size: cover;
-	min-width: 200px;
+  min-width: 200px;
   width: 20%;
-	height: 300px;
-	color: #EEEEEE;
+  height: 300px;
+  color: #eeeeee;
   margin: 10px;
 }
 
-.news-card>div {
+.news-content {
   position: absolute;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   max-height: 300px;
   width: 100%;
   flex-grow: 1;
-	padding: 10px;
+  padding: 10px;
   bottom: 0;
 }
 

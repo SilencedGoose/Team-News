@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import * as L from "leaflet";
 
 let users: user[] = [
