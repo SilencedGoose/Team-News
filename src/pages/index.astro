@@ -1,40 +1,57 @@
 ---
-
-import MapHandler from "../components/Map.jsx"
+import MapHandler from "../components/Map.tsx"
 import News from '../components/News.tsx';
 
-let title = "GUSS 2022";
 let testdata = [{
 	headline: "hello",
 	url: "https://www.google.com",
-	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513"
+	img: "https://www.aljazeera.com/wp-content/uploads/2022/02/2021-11-22T000000Z_1503266959_RC2GZQ9EBFLI_RTRMADP_3_AFGHANISTAN-CONFLICT-BANKING.jpg?resize=770%2C513",
+	alt:"hello"
 },]
 
 ---
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-  
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-		crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-		crossorigin=""></script>
-	
-	<title>{title}</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		
+		<!--leaflet map parts-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+			crossorigin=""></script>
+		
+		<!--various project settings-->
+		<title>Team News</title>
+		<link rel="icon" href="../../public/assets/tab-icon.png">
+		<style global>
+			@import "../styles/home.css";
+		</style>
+	</head>
 
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<style global>
-		@import "../styles/global.css";
-		@import "../styles/home.css";
-	</style>
-</head>
-<body>
-	<main>
-    	<MapHandler client:only />
-		<News data={testdata}/>
-	</main>
-</body>
+	<body>
+		<div id="fixed">
+			<header id="navbar">
+				<img src="../../public/assets/logo.png"/>
+				<a>Switch Account</a>
+			</header> 
+
+			<div id="map-on-page"> 
+				<MapHandler client:only /> 
+			</div>
+		</div> 
+		
+		<div class="spacer"></div>  
+
+		<div class="arrow-container">
+			<p class="bounce">Scroll down for news<br></p> 
+			<div class="arrowDown bounce"></div>
+		</div>
+		
+		<div id="news-content">
+			<News data={testdata} client:load/>
+		</div> 
+	</body>
 </html>

@@ -1,16 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 :root {
-	--font-mono: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
-		'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-	--color-light: #f3f4f6;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --font-mono: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+    monospace;
+  --color-light: #f3f4f6;
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--color-light: #1f2937;
-	}
+  :root {
+    --color-light: #1f2937;
+  }
+
+  body {
+    background: #222831;
+    color: #eeeeee;
+  }
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+}
+
+#mapDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
 }
 
 #map {
-	height: 500px;
-	width: 500px;
+  height: 90vh;
+  width: 100vw;
+}
+
+.button {
+  background: #ffd369;
+  color: #222831;
+  height: 50px;
+  width: 120px;
+  font-size: 17px;
+  text-decoration: none;
+  border: none;
+}
+
+#navbar {
+  z-index: 4;
+  background: #ffd369;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  color: #222831;
+}
+
+#navbar img {
+  height: 100%;
+}
+
+#navbar a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #ffa13d;
+  padding: 0 20px;
+}
+
+#navbar a:hover {
+  background: #ed8b23;
+}
+
+#map-on-page {
+  margin-top: 20px;
+}
+
+.arrowDown {
+  border: solid #ffd369;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 15px;
+  transform: rotate(45deg);
+}
+
+.bounce {
+  position: relative;
+  -webkit-animation: bounce 1.5s infinite;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.arrow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-between;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10%;
+  color: #ffd369;
+}
+
+#fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 0;
+}
+
+.spacer {
+  width: 100%;
+  height: 90vh;
+}
+
+#news-container {
+  display: flex;
+  justify-content: center;
+}
+
+#news {
+  width: 90%;
+  background: rgba(238, 238, 238, 0.9);
+  padding: 40px 20px;
+  z-index: 3;
+}
+
+#news h1 {
+  text-align: center;
+}
+
+#news-content {
+  opacity: 100%;
+  color: #222831;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.news-card {
+  position: relative;
+  background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513")
+    no-repeat center center;
+  background-size: cover;
+  min-width: 200px;
+  flex-basis: 30%;
+  height: 300px;
+  color: #eeeeee;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.news-content {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  max-height: 300px;
+  width: 100%;
+  flex-grow: 1;
+  bottom: 0;
+}
+
+.news-card a {
+  color: #ffd369;
+  text-decoration: none;
+}
+
+.news-card .articleHeadline {
+  padding: 10px;
+  border-bottom: 3px solid #ffd369;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-card .articlePicture {
+  width: 100%;
+  position: relative;
+  bottom: 0;
 }

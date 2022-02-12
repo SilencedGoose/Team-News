@@ -1,9 +1,15 @@
 interface articleProps {
-  headline: string;
-  url: string;
-  img: string;
+  title: string;
+  link: string;
+  image: string;
+  alt: string;
 }
 
 interface newsProps {
   data: articleProps[];
+}
+
+interface user {
+  name: string;
+  location: LatLngExpression;
 }
