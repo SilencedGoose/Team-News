@@ -41,12 +41,8 @@ main {
   height: 90vh;
 }
 
-#mapDiv .button {
-  margin-bottom: 10px;
-}
-
 #map {
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
 }
 
