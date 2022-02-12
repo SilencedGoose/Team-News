@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function MapHandler() {
 	function loadMap() {
-		var map = L.map('map').setView([0, 0], 1);
+		var map = L.map('map', {scrollWheelZoom: false,}).setView([15, 0], 2);
 		
 		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
