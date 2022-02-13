@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 
 import { addDoc } from "firebase/firestore";
 
-const countries: String[] = [
+const countries: string[] = [
   "afghanistan",
   "africa",
   "albania",
@@ -214,10 +214,10 @@ const countries: String[] = [
   "western-sahara",
   "yemen",
   "zambia",
-  "zimbabwe"
-]
+  "zimbabwe",
+];
 
-const countriesDisplay: String[] = [
+const countriesDisplay: string[] = [
   "Afghanistan",
   "Africa",
   "Albania",
@@ -429,11 +429,10 @@ const countriesDisplay: String[] = [
   "Western Sahara",
   "Yemen",
   "Zambia",
-  "Zimbabwe"
-]
+  "Zimbabwe",
+];
 
 let New: FC<dbProps> = ({ teams, userID }) => {
-  
   let [name, setName] = useState("");
   let [country, setCountry] = useState("");
   let [lat, setLat] = useState(0);
@@ -459,10 +458,10 @@ let New: FC<dbProps> = ({ teams, userID }) => {
       <h2 className="manageTitle">Add a new team member</h2>
       <div className="addMemberFlex">
         <div className="labels">
-          <span>Name{" "}</span>
-          <span>Latitude{" "}</span>
-          <span>Longitude{" "}</span>
-          <span>Country{" "}</span>
+          <span>Name </span>
+          <span>Latitude </span>
+          <span>Longitude </span>
+          <span>Country </span>
         </div>
         <div className="inputs">
           <input
@@ -495,17 +494,26 @@ let New: FC<dbProps> = ({ teams, userID }) => {
             value={country}
             onChange={(e) => {
               setCountry(e.target.value);
-            }}>
+            }}
+          >
             <option value="">Select a Country</option>
             {countries.map((c, index) => {
               return <option value={c}>{countriesDisplay[index]}</option>;
             })}
           </select>
         </div>
-        <button onClick={(e) =>
-          addNewMember(name, lat, long, country)
-        }>
-        Add New Member
+        <button
+          onClick={(e) => {
+            let latNum: number = Number(lat);
+            let longNum: number = Number(long);
+            if (latNum === NaN || longNum == NaN) {
+              alert("Please ensure Lattitude and Longitude are numbers");
+            } else {
+              addNewMember(name, latNum, longNum, country);
+            }
+          }}
+        >
+          Add New Member
         </button>
       </div>
     </div>
