@@ -308,6 +308,9 @@ main.manageWrapper {
       .inputs input {
         display: block;
       }
+      .inputs select {
+        width: 178px;
+      }
       .labels span {
         text-align: right;
       }
