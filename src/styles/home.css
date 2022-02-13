@@ -42,10 +42,9 @@ main {
   align-items: center;
   width: 100%;
   height: 100vh;
-  
 }
 
-#map {
+.leaflet-container {
   height: 100vh;
   width: 100vw;
   z-index: 2;
@@ -88,7 +87,7 @@ main {
 }
 
 .arrowDown {
-  border: solid #393E46;
+  border: solid #393e46;
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 15px;
@@ -120,7 +119,7 @@ main {
   width: 100%;
   height: 20px;
   margin-bottom: 10%;
-  color: #393E46;
+  color: #393e46;
 }
 
 #fixed {
@@ -136,7 +135,6 @@ main {
 #news-container {
   display: flex;
   justify-content: center;
-  
 }
 
 #news {

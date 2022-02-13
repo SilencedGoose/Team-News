@@ -1,22 +1,16 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 
 // Import the functions you need from the SDKs you need
-import NavBar from "./NavBar";
-import Map from "./Map";
-import News from "./News";
+import NavBar from "../NavBar";
+import List from "./List";
+import AddNew from "./AddNew";
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  onSnapshot,
-  query,
-  where,
-} from "firebase/firestore";
+import { getFirestore, collection } from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
+import SignIn from "../SignIn";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBSciiHKw05DoLWA2k-zPsxC3RdajnXdi0",
@@ -32,33 +26,27 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const store = getFirestore(firebaseApp);
 
-let App: FC = () => {
-  let [location, setLocation] = useState("");
+let Manage: FC = () => {
   let [user] = useAuthState(auth);
+  let teams = collection(store, "teams");
+
   let userID: string = user?.uid || "";
+
+  let normal = (
+    <div>
+      <List teams={teams} userID={userID} />
+      <AddNew teams={teams} userID={userID} />
+    </div>
+  );
 
   return (
     <body>
       <div id="fixed">
         <NavBar auth={auth} user={user} />
-        <Map store={store} user={user} />
       </div>
-
-      <div className="spacer"></div>
-
-      <div className="arrow-container bounce">
-        <p>
-          Scroll down for news
-          <br />
-        </p>
-        <div className="arrowDown"></div>
-      </div>
-
-      <div id="news-content">
-        <News />
-      </div>
+      {!user ? <SignIn auth={auth} /> : normal}
     </body>
   );
 };
 
-export default App;
+export default Manage;
