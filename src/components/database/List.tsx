@@ -36,9 +36,16 @@ let List: FC<dbProps> = ({ teams, userID }) => {
   return (
     <div className="teamsListWrapper">
       <h2 className="manageTitle">Current team members</h2>
-      {teamMembers.map((e) => (
-        <DisplayMember member={e} />
-      ))}
+        <div className="teamsListFlex">
+          <div className="teamMember teamMemberHeading">
+            <span>Name</span> 
+            <span>Lat / Long</span>
+            <span>Country</span>
+          </div>
+          {teamMembers.map((e) => (
+            <DisplayMember member={e} />
+          ))}
+        </div> 
     </div>
   );
 };
