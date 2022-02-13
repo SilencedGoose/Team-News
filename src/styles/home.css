@@ -290,42 +290,46 @@ main.manageWrapper {
             font-weight: bold;
           }
 
-  .addMemberWrapper {
-    align-self: flex-end;
-    background: var(--color-yellow);
+  .manageGhost {
     flex: 1;
-    min-width: 400px;
+    min-width: 500px;
   }
-    .addMemberWrapper .manageTitle {
-      border-bottom: 3px solid var(--color-grey);
+    .addMemberWrapper {
+      position: fixed;
+      background: var(--color-yellow);
+      width: 480px;
+      right: calc(5vw + 40px);
     }
-    .addMemberFlex {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-      .labels span,
-      .inputs input {
-        display: block;
+      .addMemberWrapper .manageTitle {
+        border-bottom: 3px solid var(--color-grey);
       }
-      .inputs select {
-        width: 178px;
+      .addMemberFlex {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
       }
-      .labels span {
-        text-align: right;
-      }
-      
-      .addMemberFlex button {
-        font-size: 15px;
-        background: #393E46;
-        color: var(--color-lightgrey);
-        padding: 0 10px;
-        border: none;
-      }
-      
-      .addMemberFlex button:hover {
-        background: var(--color-navy);
-      }
+        .labels span,
+        .inputs input {
+          display: block;
+        }
+        .inputs select {
+          width: 178px;
+        }
+        .labels span {
+          text-align: right;
+        }
+        
+        .addMemberFlex button {
+          font-size: 15px;
+          background: #393E46;
+          color: var(--color-lightgrey);
+          padding: 0 10px;
+          border: none;
+        }
+        
+        .addMemberFlex button:hover {
+          background: var(--color-navy);
+        }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
