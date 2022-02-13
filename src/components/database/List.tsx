@@ -24,7 +24,7 @@ let List: FC<dbProps> = ({ teams, userID }) => {
       let temp: teamMember = {
         name: data.member_name,
         location: [data.lat, data.long],
-        country: data.country,
+        country: data.country[0]?.toUpperCase() + data.country.slice(1).replace(/-/g, " "),
       };
 
       members.push(temp);
