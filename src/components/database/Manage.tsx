@@ -36,7 +36,7 @@ let Manage: FC = () => {
     <main className="manageWrapper">
       <List teams={teams} userID={userID} />
       <AddNew teams={teams} userID={userID} />
-    </main> 
+    </main>
   );
 
   return (

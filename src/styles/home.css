@@ -19,7 +19,7 @@
   }
 
   body {
-    background: #222831;
+    background: #393E46;
     color: #eeeeee;
   }
 }
@@ -239,9 +239,9 @@ main {
 main.manageWrapper {
   position: relative;
   background: #EEEEEE;
-  top: 70px;
+  top: 80px;
   color: #222831;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 80px);
   width: 90vw;
   padding: 20px;
   display: flex;
@@ -269,10 +269,15 @@ main.manageWrapper {
 
   .addMemberWrapper {
     align-self: flex-end;
-    background: #ffa13d;
+    background: #FFD369;
     flex: 1;
     min-width: 400px;
   }
+    
+    .addMemberWrapper .manageTitle {
+      border-bottom: 2px solid #393E46;
+    }
+    
     .addMemberFlex {
       display: flex;
       justify-content: center;
@@ -284,4 +289,16 @@ main.manageWrapper {
       }
       .labels span {
         text-align: right;
+      }
+      
+      .addMemberFlex button {
+        font-size: 15px;
+        background: #393E46;
+        color: #EEEEEE;
+        padding: 0 10px;
+        border: none;
+      }
+      
+      .addMemberFlex button:hover {
+        background: #222831;
       }
