@@ -41,8 +41,9 @@ let App: FC = () => {
     <body>
       <div id="fixed">
         <NavBar auth={auth} user={user} />
-        <Map store={store} user={user} setLocation={setLocation} />
       </div>
+        <Map store={store} user={user} setLocation={setLocation} />
+      
 
       <div className="spacer"></div>
 
