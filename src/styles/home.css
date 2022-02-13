@@ -36,39 +36,28 @@ body {
   align-items: center;
 }
 
-main {
-  width: 100%;
-}
-
 .map-on-page {
   position: fixed;
   top: 80px;
 }
-
-#mapDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  #mapDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+    .leaflet-container {
+      height: 100vh;
+      width: 100vw;
+      z-index: 2;
+    }
+    
+#fixed {
+  position: fixed;
   width: 100%;
-  height: 100vh;
+  z-index: 10;
 }
-
-.leaflet-container {
-  height: 100vh;
-  width: 100vw;
-  z-index: 2;
-}
-
-.button {
-  background: var(--color-yellow);
-  color: var(--color-navy);
-  height: 50px;
-  width: 120px;
-  font-size: 17px;
-  text-decoration: none;
-  border: none;
-}
-
 #navbar {
   background: var(--color-navy);
   width: 100%;
@@ -77,83 +66,48 @@ main {
   justify-content: space-between;
   color: var(--color-lightgrey);
 }
-
-#navbar #logo {
-  height: 70px;
-  margin: 5px 0;
-}
-
-#navbar #logo:hover {
-  transform: scale(0.94);
-}
-
-#navbar #message {
-  display: flex;
-  align-items: center;
-  font-size: 26px;
-}
-
-#navbar #nav-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#navbar a {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#navbar #nav-buttons a {
-  padding: 0 10px;
-  text-decoration: none;
-  background: var(--color-navy);
-  color: var(--color-lightgrey);
-  border-left: 2px solid var(--color-lightgrey);
-}
-
-#navbar #nav-buttons a:hover {
-  background: var(--color-yellow);
-  color: var(--color-navy);
-}
-
-#navbar button {
-  font-size: 15px;
-  background: var(--color-navy);
-  color: var(--color-lightgrey);
-  padding: 0 10px;
-  border: none;
-  border-left: 2px solid var(--color-lightgrey);
-}
-
-#navbar button:hover {
-  background: var(--color-yellow);
-  color: var(--color-navy);
-}
-
-.arrowDown {
-  border: solid var(--color-grey);
-  border-width: 0 5px 5px 0;
-  display: inline-block;
-  padding: 15px;
-  transform: rotate(45deg);
-}
-
-.bounce {
-  position: relative;
-  -webkit-animation: bounce 1.5s infinite;
-}
-
-@-webkit-keyframes bounce {
-  0% {
-    bottom: 0px;
+  #navbar a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
-  50% {
-    bottom: 20px;
+  #navbar #logo {
+    height: 70px;
+    margin: 5px 0;
+  } #navbar #logo:hover {
+    transform: scale(0.94);
   }
-  100% {
-    bottom: 0;
+  #navbar #message {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
   }
+  #navbar #nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+    #navbar #nav-buttons a {
+      text-decoration: none;
+    }
+    #navbar #nav-buttons button {
+      font-size: 15px;
+      border: none;
+    }
+    #navbar #nav-buttons a,
+    #navbar #nav-buttons button {
+      background: var(--color-navy);
+      color: var(--color-lightgrey);
+      padding: 0 10px;
+      border-left: 2px solid var(--color-lightgrey);
+    } #navbar #nav-buttons a:hover,
+      #navbar #nav-buttons button:hover {
+      background: var(--color-yellow);
+      color: var(--color-navy);
+    }
+
+.spacer {
+  width: 100%;
+  height: 90vh;
 }
 
 .arrow-container {
@@ -165,86 +119,78 @@ main {
   height: 20px;
   margin-bottom: 10%;
   color: var(--color-grey);
+} .bounce {
+  position: relative;
+  -webkit-animation: bounce 1.5s infinite;
+} @-webkit-keyframes bounce {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
 }
+  .arrowDown {
+    border: solid var(--color-grey);
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 15px;
+    transform: rotate(45deg);
+  }
 
-#fixed {
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-}
-
-.spacer {
-  width: 100%;
-  height: 90vh;
-}
-
+/* News */
 #news-container {
   display: flex;
+  flex-flow: column;
   justify-content: center;
-}
-
-#news {
   width: 90vw;
   background: rgba(238, 238, 238, 0.9);
   padding: 40px 20px;
-}
-
-#news h1 {
-  text-align: center;
-}
-
-#news-content {
-  opacity: 100%;
-  color: var(--color-navy);
-  overflow: hidden;
-  min-height: 90vh;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
   z-index: 9;
 }
-
-.news-card {
-  position: relative;
-  background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513")
-    no-repeat center center;
-  background-size: cover;
-  min-width: 200px;
-  flex-basis: 30%;
-  height: 300px;
-  color: var(--color-lightgrey);
-  margin: 10px;
-  overflow: hidden;
-}
-
-.news-content {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  max-height: 300px;
-  width: 100%;
-  flex-grow: 1;
-  bottom: 0;
-}
-
-.news-card a {
-  color: var(--color-yellow);
-  text-decoration: none;
-}
-
-.news-card .articleHeadline {
-  padding: 10px;
-  border-bottom: 3px solid var(--color-yellow);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.news-card .articlePicture {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-}
+    #news-container h1 {
+      text-align: center;
+    }
+    #news-container #news-card-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+      #news-card-container .news-card {
+        position: relative;
+        min-width: 200px;
+        height: 300px;
+        flex-basis: 30%;
+        margin: 10px;
+        overflow: hidden;
+        background: url("https://www.aljazeera.com/wp-content/uploads/2022/02/graph.jpg?resize=770%2C513")
+          no-repeat center center;
+        background-size: cover;
+      }
+        .news-card .news-link {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          max-height: 300px;
+          background: rgba(0, 0, 0, 0.5);
+          color: var(--color-yellow);
+          text-decoration: none;
+        }
+          .news-card .news-link .articleHeadline {
+            padding: 10px;
+            border-bottom: 3px solid var(--color-yellow);
+          }
+          .news-card .news-link .articlePicture {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+          }
  
-/* MANAGE CSS DOWN HERE */
+/* Manage */
 main.manageWrapper {
   position: relative;
   background: var(--color-lightgrey);

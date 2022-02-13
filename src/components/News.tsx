@@ -25,14 +25,12 @@ let News: FC<{ location: string }> = ({ location }) => {
 
   return (
     <div id="news-container">
-      <div id="news">
-        <h1>{location ? "News in " + location[0].toUpperCase()+location.slice(1) : "Global News"}</h1>
-        <br />
-        <div id="news-content">
-          {news.map((src) => {
-            return <Article src={src} />;
-          })}
-        </div>
+      <h1>{location ? "News in " + location[0].toUpperCase()+location.slice(1) : "Global News"}</h1>
+      <br />
+      <div id="news-card-container">
+        {news.map((src) => {
+          return <Article src={src} />;
+        })}
       </div>
     </div>
   );
