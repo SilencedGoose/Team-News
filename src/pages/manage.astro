@@ -1,5 +1,5 @@
 ---
-import App from "../components/App.tsx"
+import Manage from "../components/database/Manage.tsx";
 ---
 <html lang="en">
 	<head>
@@ -18,9 +18,9 @@ import App from "../components/App.tsx"
 		<title>Team News</title>
 		<link rel="icon" href="/assets/tab-icon.png">
 		<style global>
-			@import "../styles/home.css";
+			/* @import "../styles/home.css"; */
 		</style>
 	</head>
 
-	<App client:only/>
+	<Manage client:load/>
 </html>

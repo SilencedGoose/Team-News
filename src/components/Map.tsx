@@ -1,52 +1,80 @@
-import React, { FC, useEffect } from "react";
-import * as L from "leaflet";
+import React, { FC, useEffect, useState } from "react";
+import {
+  collection,
+  Firestore,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
+import { User } from "firebase/auth";
 
-let users: user[] = [
-  { name: "Shouta", location: [42.546, 1.601] },
-  { name: "Hitoshi", location: [12.444, 1.2] },
-];
+import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 
-let MapHandler: FC = () => {
-  useEffect(() => {
-    //load map
-    var map = L.map("map", { scrollWheelZoom: false }).setView([15, 0], 2);
+interface mapProps {
+  store: Firestore;
+  user: User | undefined | null;
+}
 
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        minZoom: 1,
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          "pk.eyJ1IjoiYW5pbWF0b3JvZnNvdWxzIiwiYSI6ImNreml0eXNtMTFvYWwycW5yY2VhaHI2MDAifQ.ZSNNSGLF4DixEuS3RrLtHQ",
-      }
-    ).addTo(map);
+let Map: FC<mapProps> = ({ store, user }) => {
+  let [team, setTeam] = useState<JSX.Element[]>([]);
+  let userID: string = user?.uid || "";
+  let teams = collection(store, "teams");
+  let q = query(teams, where("uid", "==", userID));
 
-    for (let user of users) {
-      addMarker(map, user.location, user.name);
-    }
-  }, []);
+  async function getTeam() {
+    let data = await getDocs(q);
+    const members: JSX.Element[] = [];
 
-  function showNews() {
-    alert("ALERT!");
+    data.forEach((doc) => {
+      let data = doc.data();
+      members.push(
+        <Marker position={[data.lat, data.long]}>
+          <Popup>
+            {data.member_name}
+            <br />
+            <button onClick={() => showNews(data.country)}>
+              Show news here
+            </button>
+          </Popup>
+        </Marker>
+      );
+    });
+    setTeam(members);
   }
 
-  function addMarker(map: L.Map, location: L.LatLngExpression, name: string) {
-    var marker = L.marker(location).addTo(map);
-    marker.bindPopup(
-      "<b>" + name + "</b><br><button onClick={showNews()}>View news</button>"
-    );
+  useEffect(() => {
+    getTeam();
+  }, [user]);
+
+  function showNews(country: string) {
+    alert("news in: " + country);
   }
 
   return (
-    <div id="mapDiv">
-      <div id="map"></div>
+    <div className="map-on-page">
+      <div id="mapDiv">
+        <MapContainer center={[0, 0]} zoom={2} scrollWheelZoom={false}>
+          <TileLayer
+            url={
+              "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+            }
+            attribution={
+              'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+            }
+            accessToken={
+              "pk.eyJ1IjoiYW5pbWF0b3JvZnNvdWxzIiwiYSI6ImNreml0eXNtMTFvYWwycW5yY2VhaHI2MDAifQ.ZSNNSGLF4DixEuS3RrLtHQ"
+            }
+            maxZoom={18}
+            minZoom={1}
+            id="mapbox/streets-v11"
+            tileSize={512}
+            zoomOffset={-1}
+          />
+          {team}
+        </MapContainer>
+      </div>
     </div>
   );
 };
 
-export default MapHandler;
+export default Map;
