@@ -56,7 +56,7 @@ let App: FC = () => {
 
       <div id="news-content">
         <News location={location} />
-      </div>
+      </div> 
     </body>
   );
 };

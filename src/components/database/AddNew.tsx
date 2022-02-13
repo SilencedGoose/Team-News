@@ -24,44 +24,51 @@ let New: FC<dbProps> = ({ teams, userID }) => {
   };
 
   return (
-    <div>
-      name{" "}
-      <input
-        name="name"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
-      latitude{" "}
-      <input
-        name="latitude"
-        value={lat}
-        onChange={(e) => {
-          let num = Number(e.target.value);
-          setLat(num);
-        }}
-      />
-      longitude{" "}
-      <input
-        name="longitude"
-        value={long}
-        onChange={(e) => {
-          let num = Number(e.target.value);
-          setLong(num);
-        }}
-      />
-      Country:{" "}
-      <input
-        name="country"
-        value={country}
-        onChange={(e) => {
-          setCountry(e.target.value);
-        }}
-      />
-      <button onClick={(e) => addNewMember(name, lat, long, country)}>
-        add new member
-      </button>
+    <div className="addMemberWrapper">
+      <h2 className="manageTitle">Add a new team member</h2>
+      <div className="addMemberFlex">
+        <div className="labels">
+          <span>Name{" "}</span>
+          <span>Latitude{" "}</span>
+          <span>Longitude{" "}</span>
+          <span>Country{" "}</span>   
+        </div>
+        <div className="inputs">
+          <input
+            name="name" 
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <input
+            name="latitude"
+            value={lat}
+            onChange={(e) => {
+              let num = Number(e.target.value);
+              setLat(num);
+            }}
+          />
+          <input
+            name="longitude"
+            value={long}
+            onChange={(e) => {
+              let num = Number(e.target.value);
+              setLong(num);
+            }}
+          />
+          <input
+            name="country"
+            value={country}
+            onChange={(e) => {
+              setCountry(e.target.value);
+            }}
+          />
+        </div>
+        <button onClick={(e) => addNewMember(name, lat, long, country)}>
+        Add New Member 
+        </button>
+      </div>
     </div>
   );
 };
