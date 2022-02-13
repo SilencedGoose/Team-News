@@ -18,7 +18,7 @@ let News: FC = () => {
       .catch((error) => {
         console.error("error fetching data: ", error);
       });
-  });
+  }, []);
 
   return (
     <div id="news-container">

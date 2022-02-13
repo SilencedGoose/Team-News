@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // Import the functions you need from the SDKs you need
 import NavBar from "./NavBar";
@@ -6,8 +6,15 @@ import Map from "./Map";
 import News from "./News";
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -22,17 +29,19 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
-const analytics = getAnalytics(firebaseApp);
 const auth = getAuth(firebaseApp);
+const store = getFirestore(firebaseApp);
 
 let App: FC = () => {
+  let [location, setLocation] = useState("");
   let [user] = useAuthState(auth);
+  let userID: string = user?.uid || "";
 
   return (
     <body>
       <div id="fixed">
         <NavBar auth={auth} user={user} />
-        <Map />
+        <Map store={store} user={user} />
       </div>
 
       <div className="spacer"></div>

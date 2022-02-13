@@ -18,9 +18,12 @@ let NavBar: FC<navbarProps> = ({ auth, user }) => {
   );
   return (
     <header id="navbar">
-      <img src="../../public/assets/logo.png" />
-      {authState}
+      <a href="/">
+        <img src="/assets/logo.png" />
+      </a>
+      {user ? <a href="/manage">Manage your team</a> : <div></div>}
       {message}
+      {authState}
     </header>
   );
 };
