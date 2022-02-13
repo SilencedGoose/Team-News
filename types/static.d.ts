@@ -9,6 +9,7 @@ interface teamMember {
   name: string;
   location: LatLngExpression;
   country: string;
+  del?: () => void;
 }
 
 interface authProps {
