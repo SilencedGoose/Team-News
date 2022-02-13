@@ -33,10 +33,10 @@ let Manage: FC = () => {
   let userID: string = user?.uid || "";
 
   let normal = (
-    <div>
+    <main className="manageWrapper">
       <List teams={teams} userID={userID} />
       <AddNew teams={teams} userID={userID} />
-    </div>
+    </main> 
   );
 
   return (
