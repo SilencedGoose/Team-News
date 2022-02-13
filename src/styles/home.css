@@ -198,3 +198,54 @@ main {
   position: relative;
   bottom: 0;
 }
+ 
+/* MANAGE CSS DOWN HERE */
+main.manageWrapper {
+  position: relative;
+  background: #EEEEEE;
+  top: 70px;
+  color: #222831;
+  min-height: calc(100vh - 70px);
+  width: 90vw;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+  .teamsListWrapper,
+  .addMemberWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+    .manageTitle {
+      display: inline-block;
+      border-bottom: 3px solid #ffd369;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+  .teamsListWrapper {
+    flex: 4;
+    width: 70%;
+  }
+
+  .addMemberWrapper {
+    align-self: flex-end;
+    background: #ffa13d;
+    flex: 1;
+    min-width: 400px;
+  }
+    .addMemberFlex {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+      .labels span,
+      .inputs input {
+        display: block;
+      }
+      .labels span {
+        text-align: right;
+      }
