@@ -309,16 +309,24 @@ main.manageWrapper {
         gap: 20px;
       }
         .labels span,
-        .inputs input {
-          display: block;
-        }
+        .inputs input,
         .inputs select {
-          width: 178px;
+          display: block;
+          margin-top: 2px;
+        }
+        .inputs input,
+        .inputs select {
+          width: 170px;
+          height: 22px;
+          border: 0;
+        }
+        .labels span:first-child,
+        .inputs input:first-child {
+          margin-top: 0;
         }
         .labels span {
           text-align: right;
         }
-        
         .addMemberFlex button {
           font-size: 15px;
           background: #393E46;
@@ -326,7 +334,6 @@ main.manageWrapper {
           padding: 0 10px;
           border: none;
         }
-        
         .addMemberFlex button:hover {
           background: var(--color-navy);
         }
