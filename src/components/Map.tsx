@@ -13,9 +13,10 @@ import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 interface mapProps {
   store: Firestore;
   user: User | undefined | null;
+  setLocation: React.Dispatch<React.SetStateAction<string>>;
 }
 
-let Map: FC<mapProps> = ({ store, user }) => {
+let Map: FC<mapProps> = ({ store, user, setLocation }) => {
   let [team, setTeam] = useState<JSX.Element[]>([]);
   let userID: string = user?.uid || "";
   let teams = collection(store, "teams");
@@ -32,7 +33,7 @@ let Map: FC<mapProps> = ({ store, user }) => {
           <Popup>
             {data.member_name}
             <br />
-            <button onClick={() => showNews(data.country)}>
+            <button onClick={() => setLocation(data.country)}>
               Show news here
             </button>
           </Popup>
@@ -45,10 +46,6 @@ let Map: FC<mapProps> = ({ store, user }) => {
   useEffect(() => {
     getTeam();
   }, [user]);
-
-  function showNews(country: string) {
-    alert("news in: " + country);
-  }
 
   return (
     <div className="map-on-page">
