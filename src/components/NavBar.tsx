@@ -10,20 +10,24 @@ interface navbarProps {
 }
 
 let NavBar: FC<navbarProps> = ({ auth, user }) => {
-  let authState = user ? <SignOut auth={auth} /> : <SignIn auth={auth} />;
+  let authState = user ? <SignOut auth={auth}/> : <SignIn auth={auth}/>;
   let message = user ? (
-    <div>welcome {user.displayName}</div>
+    <div>Welcome {user.displayName}</div>
   ) : (
-    <div>Please sign in</div>
+    <div>Sign in to add Team Members</div>
   );
   return (
     <header id="navbar">
-      <a href="/">
+      <a id="logo" href="/">
         <img src="/assets/logo.png" />
       </a>
-      {user ? <a href="/manage">Manage your team</a> : <div></div>}
-      {message}
-      {authState}
+      <div id="message">
+        {message}
+      </div>
+      <div id="nav-buttons">
+        {user ? <a href="/manage">Manage your team</a> : <div></div>}
+        {authState}
+      </div>
     </header>
   );
 };

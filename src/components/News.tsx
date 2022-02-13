@@ -26,7 +26,7 @@ let News: FC<{ location: string }> = ({ location }) => {
   return (
     <div id="news-container">
       <div id="news">
-        <h1>{location ? "news in " + location : "Global News"}</h1>
+        <h1>{location ? "News in " + location : "Global News"}</h1>
         <br />
         <div id="news-content">
           {news.map((src) => {
