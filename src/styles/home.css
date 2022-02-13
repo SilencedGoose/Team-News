@@ -11,6 +11,10 @@
     "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
     monospace;
   --color-light: #f3f4f6;
+  --color-yellow: #ffd369;
+  --color-lightgrey: #eeeeee;
+  --color-navy: #222831;
+  --color-grey: #393E46;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,8 +55,8 @@ main {
 }
 
 .button {
-  background: #ffd369;
-  color: #222831;
+  background: var(--color-yellow);
+  color: var(--color-navy);
   height: 50px;
   width: 120px;
   font-size: 17px;
@@ -61,12 +65,12 @@ main {
 }
 
 #navbar {
-  background: #222831;
+  background: var(--color-navy);
   width: 100%;
   min-height: 70px;
   display: flex;
   justify-content: space-between;
-  color: #EEEEEE;
+  color: var(--color-lightgrey);
 }
 
 #navbar #logo {
@@ -98,32 +102,32 @@ main {
 #navbar #nav-buttons a {
   padding: 0 10px;
   text-decoration: none;
-  background: #222831;
-  color: #EEEEEE;
-  border-left: 2px solid #EEEEEE;
+  background: var(--color-navy);
+  color: var(--color-lightgrey);
+  border-left: 2px solid var(--color-lightgrey);
 }
 
 #navbar #nav-buttons a:hover {
-  background: #FFD369;
-  color: #222831;
+  background: var(--color-yellow);
+  color: var(--color-navy);
 }
 
 #navbar button {
   font-size: 15px;
-  background: #222831;
-  color: #EEEEEE;
+  background: var(--color-navy);
+  color: var(--color-lightgrey);
   padding: 0 10px;
   border: none;
-  border-left: 2px solid #EEEEEE;
+  border-left: 2px solid var(--color-lightgrey);
 }
 
 #navbar button:hover {
-  background: #FFD369;
-  color: #222831;
+  background: var(--color-yellow);
+  color: var(--color-navy);
 }
 
 .arrowDown {
-  border: solid #393e46;
+  border: solid var(--color-grey);
   border-width: 0 5px 5px 0;
   display: inline-block;
   padding: 15px;
@@ -155,7 +159,7 @@ main {
   width: 100%;
   height: 20px;
   margin-bottom: 10%;
-  color: #393e46;
+  color: var(--color-grey);
 }
 
 #fixed {
@@ -186,7 +190,7 @@ main {
 
 #news-content {
   opacity: 100%;
-  color: #222831;
+  color: var(--color-navy);
   overflow: hidden;
   min-height: 90vh;
   display: flex;
@@ -203,7 +207,7 @@ main {
   min-width: 200px;
   flex-basis: 30%;
   height: 300px;
-  color: #eeeeee;
+  color: var(--color-lightgrey);
   margin: 10px;
   overflow: hidden;
 }
@@ -218,13 +222,13 @@ main {
 }
 
 .news-card a {
-  color: #ffd369;
+  color: var(--color-yellow);
   text-decoration: none;
 }
 
 .news-card .articleHeadline {
   padding: 10px;
-  border-bottom: 3px solid #ffd369;
+  border-bottom: 3px solid var(--color-yellow);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -238,9 +242,9 @@ main {
 /* MANAGE CSS DOWN HERE */
 main.manageWrapper {
   position: relative;
-  background: #EEEEEE;
+  background: var(--color-lightgrey);
   top: 80px;
-  color: #222831;
+  color: var(--color-navy);
   min-height: calc(100vh - 80px);
   width: 90vw;
   padding: 20px;
@@ -257,7 +261,6 @@ main.manageWrapper {
   }
     .manageTitle {
       display: inline-block;
-      border-bottom: 3px solid #ffd369;
       padding-bottom: 10px;
       margin-bottom: 15px;
     }
@@ -266,18 +269,19 @@ main.manageWrapper {
     flex: 4;
     width: 70%;
   }
+    .teamsListWrapper .manageTitle {
+      border-bottom: 3px solid var(--color-yellow);
+    }
 
   .addMemberWrapper {
     align-self: flex-end;
-    background: #FFD369;
+    background: var(--color-yellow);
     flex: 1;
     min-width: 400px;
   }
-    
     .addMemberWrapper .manageTitle {
-      border-bottom: 2px solid #393E46;
+      border-bottom: 3px solid var(--color-grey);
     }
-    
     .addMemberFlex {
       display: flex;
       justify-content: center;
@@ -294,11 +298,27 @@ main.manageWrapper {
       .addMemberFlex button {
         font-size: 15px;
         background: #393E46;
-        color: #EEEEEE;
+        color: var(--color-lightgrey);
         padding: 0 10px;
         border: none;
       }
       
       .addMemberFlex button:hover {
-        background: #222831;
+        background: var(--color-navy);
       }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 6px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: var(--color-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-yellow);
+}
