@@ -1,7 +1,5 @@
 ---
-import MapHandler from "../components/Map.tsx"
-import News from '../components/News.tsx';
-import NavBar from "../components/NavBar.tsx";
+import App from "../components/App.tsx"
 ---
 <html lang="en">
 	<head>
@@ -24,23 +22,5 @@ import NavBar from "../components/NavBar.tsx";
 		</style>
 	</head>
 
-	<body>
-		<div id="fixed">
-			<NavBar client:only />
-			<div id="map-on-page">
-				<MapHandler client:only />
-			</div>
-		</div>
-		
-		<div class="spacer"></div>
-
-		<div class="arrow-container bounce">
-			<p>Scroll down for news<br></p>
-			<div class="arrowDown"></div>
-		</div>
-		
-		<div id="news-content">
-			<News client:load/>
-		</div>
-	</body>
+	<App client:only/>
 </html>
