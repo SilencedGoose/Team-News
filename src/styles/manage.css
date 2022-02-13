@@ -1,0 +1,98 @@
+/* Manage */
+main.manageWrapper {
+  position: relative;
+  background: var(--color-lightgrey);
+  top: 80px;
+  color: var(--color-navy);
+  min-height: calc(100vh - 80px);
+  width: 90vw;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+  .teamsListWrapper,
+  .addMemberWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+    .manageTitle {
+      display: inline-block;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+  .teamsListWrapper {
+    flex: 4;
+    width: 70%;
+  }
+    .teamsListWrapper .manageTitle {
+      border-bottom: 3px solid var(--color-yellow);
+    }
+      .teamsListFlex {
+        display: flex;
+        flex-direction: column;
+      }
+        .teamMember {
+          display: flex;
+          justify-content: left;
+          padding: 10px 0;
+          border-bottom: 1px solid var(--color-grey);
+        }
+          .teamMember span {
+            display: inline-block;
+            width: 33%;
+          }
+          .teamMember.teamMemberHeading span {
+            font-weight: bold;
+          }
+
+  .manageGhost {
+    flex: 1;
+    min-width: 500px;
+  }
+    .addMemberWrapper {
+      position: fixed;
+      background: var(--color-yellow);
+      width: 480px;
+      right: calc(5vw + 40px);
+    }
+      .addMemberWrapper .manageTitle {
+        border-bottom: 3px solid var(--color-grey);
+      }
+      .addMemberFlex {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+        .labels span,
+        .inputs input,
+        .inputs select {
+          display: block;
+          margin-top: 2px;
+        }
+        .inputs input,
+        .inputs select {
+          width: 170px;
+          height: 22px;
+          border: 0;
+        }
+        .labels span:first-child,
+        .inputs input:first-child {
+          margin-top: 0;
+        }
+        .labels span {
+          text-align: right;
+        }
+        .addMemberFlex button {
+          font-size: 15px;
+          background: #393E46;
+          color: var(--color-lightgrey);
+          padding: 0 10px;
+          border: none;
+        }
+        .addMemberFlex button:hover {
+          background: var(--color-navy);
+        }
