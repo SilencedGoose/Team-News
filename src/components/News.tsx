@@ -1,12 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import Article from "./Article";
 
-let News: FC = () => {
+let News: FC<{ location: string }> = ({ location }) => {
+  let url = location
+    ? "https://europe-west2-hackathon-2022-webscraper.cloudfunctions.net/country-webscraper?country=" +
+      location
+    : "https://europe-west2-hackathon-2022-webscraper.cloudfunctions.net/global-news-webscraper";
+
   let [news, setNews] = useState<articleProps[]>([]);
   useEffect(() => {
-    fetch(
-      "https://europe-west2-hackathon-2022-webscraper.cloudfunctions.net/global-news-webscraper"
-    )
+    fetch(url)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -18,12 +21,12 @@ let News: FC = () => {
       .catch((error) => {
         console.error("error fetching data: ", error);
       });
-  }, []);
+  }, [location]);
 
   return (
     <div id="news-container">
       <div id="news">
-        <h1>Global News</h1>
+        <h1>{location ? "news in " + location : "Global News"}</h1>
         <br />
         <div id="news-content">
           {news.map((src) => {

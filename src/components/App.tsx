@@ -41,7 +41,7 @@ let App: FC = () => {
     <body>
       <div id="fixed">
         <NavBar auth={auth} user={user} />
-        <Map store={store} user={user} />
+        <Map store={store} user={user} setLocation={setLocation} />
       </div>
 
       <div className="spacer"></div>
@@ -55,7 +55,7 @@ let App: FC = () => {
       </div>
 
       <div id="news-content">
-        <News />
+        <News location={location} />
       </div>
     </body>
   );
