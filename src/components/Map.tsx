@@ -38,7 +38,8 @@ let Map: FC<mapProps> = ({ store, user, setLocation }) => {
       members.push(
         <Marker icon={personIcon} position={[data.lat, data.long]}>
           <Popup>
-            {data.member_name}
+            <b>{data.member_name}</b><br />
+            {data.country[0]?.toUpperCase()+data.country.slice(1)}
             <br />
             <button onClick={() => setLocation(data.country)}>
               Show news here

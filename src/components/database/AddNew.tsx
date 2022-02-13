@@ -475,6 +475,7 @@ let New: FC<dbProps> = ({ teams, userID }) => {
           <input
             name="latitude"
             value={lat}
+            type="number"
             onChange={(e) => {
               let num = Number(e.target.value);
               setLat(num);
@@ -483,6 +484,7 @@ let New: FC<dbProps> = ({ teams, userID }) => {
           <input
             name="longitude"
             value={long}
+            type="number"
             onChange={(e) => {
               let num = Number(e.target.value);
               setLong(num);
@@ -494,13 +496,15 @@ let New: FC<dbProps> = ({ teams, userID }) => {
             onChange={(e) => {
               setCountry(e.target.value);
             }}>
-            <option value="Select A Country" />
+            <option value="">Select a Country</option>
             {countries.map((c, index) => {
               return <option value={c}>{countriesDisplay[index]}</option>;
             })}
           </select>
         </div>
-        <button onClick={(e) => addNewMember(name, lat, long, country)}>
+        <button onClick={(e) =>
+          addNewMember(name, lat, long, country)
+        }>
         Add New Member
         </button>
       </div>
