@@ -10,7 +10,7 @@ A website which allows teams to quickly see the news in the area that their team
 
 ## Features
 :zap: Read news about the country your teammates are in  
-:cloud_rain: including the weather! :sunny:  
+:sunny: including the weather!  
 :sparkles: See a list of your teammates and the country they live in  
 :zap: Read about global events through the global news section  
 
