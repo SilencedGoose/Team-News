@@ -1,5 +1,7 @@
 import React, { FC, useState } from "react";
 import {
+  deleteDoc,
+  doc,
   DocumentData,
   onSnapshot,
   Query,
@@ -16,15 +18,21 @@ let List: FC<dbProps> = ({ teams, userID }) => {
 
   let q: Query<DocumentData> = query(teams, where("uid", "==", userID));
 
-  let unsub = onSnapshot(q, (querySnapshot) => {
+  let unsub = onSnapshot(q, (teamMembers) => {
     const members: teamMember[] = [];
 
-    querySnapshot.forEach((doc) => {
-      let data = doc.data();
+    teamMembers.forEach((member) => {
+      let deletor = async () => {
+        await deleteDoc(doc(teams, member.id));
+      };
+      let data = member.data();
       let temp: teamMember = {
         name: data.member_name,
         location: [data.lat, data.long],
-        country: data.country[0]?.toUpperCase() + data.country.slice(1).replace(/-/g, " "),
+        country:
+          data.country[0]?.toUpperCase() +
+          data.country.slice(1).replace(/-/g, " "),
+        del: deletor,
       };
 
       members.push(temp);
@@ -36,16 +44,17 @@ let List: FC<dbProps> = ({ teams, userID }) => {
   return (
     <div className="teamsListWrapper">
       <h2 className="manageTitle">Current team members</h2>
-        <div className="teamsListFlex">
-          <div className="teamMember teamMemberHeading">
-            <span>Name</span> 
-            <span>Lat / Long</span>
-            <span>Country</span>
-          </div>
-          {teamMembers.map((e) => (
-            <DisplayMember member={e} />
-          ))}
-        </div> 
+      <div className="teamsListFlex">
+        <div className="teamMember teamMemberHeading">
+          <span>Name</span>
+          <span>Lat / Long</span>
+          <span>Country</span>
+          <div className="delete"></div>
+        </div>
+        {teamMembers.map((e) => (
+          <DisplayMember member={e} />
+        ))}
+      </div>
     </div>
   );
 };
