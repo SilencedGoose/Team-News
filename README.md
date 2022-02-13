@@ -1,4 +1,5 @@
-# GUTS-2022
+![logo](https://user-images.githubusercontent.com/33594615/153739454-1ccc43c3-5bbd-48eb-8268-9e6d7e10f6eb.png)
+
 Made for the JPMorgan challenge at GUTS 2022 hackathon.
 
 A website which allows teams to quickly see the news in the area that their team member lives, helping people stay connected while working remotely.
