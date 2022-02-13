@@ -35,7 +35,9 @@ let Manage: FC = () => {
   let normal = (
     <main className="manageWrapper">
       <List teams={teams} userID={userID} />
-      <AddNew teams={teams} userID={userID} />
+      <div className="manageGhost">
+        <AddNew teams={teams} userID={userID} />
+      </div>    
     </main>
   );
 
