@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+      sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    --font-mono: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+      "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+      "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+      monospace;
+    --color-light: #f3f4f6;
+    --color-yellow: #ffd369;
+    --color-lightgrey: #eeeeee;
+    --color-navy: #222831;
+    --color-grey: #393E46;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-light: #1f2937;
+    }
+  
+    body {
+      background: #393E46;
+      color: #eeeeee;
+    }
+  }
+  
+  body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* Navbar */
+#fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+#navbar {
+  background: var(--color-navy);
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-lightgrey);
+}
+  #navbar a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #navbar #logo {
+    height: 70px;
+    margin: 5px 0;
+  } #navbar #logo:hover {
+    transform: scale(0.94);
+  }
+  #navbar #message {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+  }
+  #navbar #nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+    #navbar #nav-buttons a {
+      text-decoration: none;
+    }
+    #navbar #nav-buttons button {
+      font-size: 15px;
+      border: none;
+    }
+    #navbar #nav-buttons a,
+    #navbar #nav-buttons button {
+      background: var(--color-navy);
+      color: var(--color-lightgrey);
+      padding: 0 10px;
+      border-left: 2px solid var(--color-lightgrey);
+    } #navbar #nav-buttons a:hover,
+      #navbar #nav-buttons button:hover {
+      background: var(--color-yellow);
+      color: var(--color-navy);
+    }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    background: transparent;
+    width: 6px;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-track-piece {
+    background: var(--color-navy);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-yellow);
+  }
