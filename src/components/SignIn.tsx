@@ -8,7 +8,7 @@ let SignIn: FC<authProps> = ({ auth }) => {
     signInWithRedirect(auth, provider);
   };
 
-  return <button onClick={signIn}> sign in </button>;
+  return <button onClick={signIn}> Sign In </button>;
 };
 
 export default SignIn;

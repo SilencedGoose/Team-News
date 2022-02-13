@@ -7,7 +7,7 @@ import {
   where,
 } from "firebase/firestore";
 import { User } from "firebase/auth";
-
+import L from "leaflet";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 
 interface mapProps {
@@ -17,6 +17,13 @@ interface mapProps {
 }
 
 let Map: FC<mapProps> = ({ store, user, setLocation }) => {
+  const personIcon = L.icon({
+    iconUrl: "/assets/marker.png",
+    iconSize: [48, 48],
+    iconAnchor: [24, 24],
+    popupAnchor: [0, -24]
+  });
+  
   let [team, setTeam] = useState<JSX.Element[]>([]);
   let userID: string = user?.uid || "";
   let teams = collection(store, "teams");
@@ -29,7 +36,7 @@ let Map: FC<mapProps> = ({ store, user, setLocation }) => {
     data.forEach((doc) => {
       let data = doc.data();
       members.push(
-        <Marker position={[data.lat, data.long]}>
+        <Marker icon={personIcon} position={[data.lat, data.long]}>
           <Popup>
             {data.member_name}
             <br />
